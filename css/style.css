@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+:root {
+  --primary-color: rgb(175, 255, 175);
+  --background-color: rgb(50, 50, 50);
+}
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+}
+
+/* Hamburger menu */
+
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox {
+  width: 6rem;
+  height: 6rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  transition: .4s ease-in-out 0s;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.checkbox .trace {
+  width: 3rem;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: absolute;
+  border-radius: .25rem;
+  transition: .5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1) {
+  top: 1.5rem;
+  transform: rotate(0deg);
+}
+
+.checkbox .trace:nth-child(2) {
+  top: 2.75rem;
+  transform: rotate(0deg);
+}
+
+.checkbox .trace:nth-child(3) {
+  top: 4rem;
+  transform: rotate(0deg);
+}
+
+#toggle {
+  display: none;
+} 
+
+/* Menu */
+
+.menu {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: transparent;
+  height: 3rem;
+  width: 3rem;
+  box-shadow: 0px 0px 0px 0px rgb(35, 35, 35);
+  transition: .3s ease-in-out 0s;
+  z-index: -1;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: .35s ease-in-out 0s;
+}
+
+.menu-items ul {
+  list-style-type: none;
+}
+
+.menu-items ul li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 3rem;
+  letter-spacing: .25rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.menu-items ul li a p {
+  text-align: center;
+  margin: 0;
+}
+
+/* Menu animations */
+
+#toggle:checked + .checkbox .trace:nth-child(1) {
+  transform: rotate(45deg);
+  top: 3rem;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+  width: 2rem;
+  transform: translateX(-5rem);
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 3rem;
+}
+
+#toggle:checked + .checkbox {
+  background-color: rgb(35, 35, 35);
+}
+
+#toggle:checked ~ .menu {
+  box-shadow: 0px 0px 0px 100vmax rgb(35, 35, 35);
+  z-index: 1;
+}
+
+#toggle:checked ~ .menu-items {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Header section */
+
+.header-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(-45deg, black, rgb(25, 25, 25), rgb(50, 50, 50), rgb(75, 75, 75));
+  background-size: 400% 400%;
+  animation: BackgroundAnimation 10s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.social-media {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.social-media a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  padding: 1rem 4rem;
+  border: 1px solid var(--primary-color);
+  min-width: .25rem;
+  transition: .4s cubic-bezier(.55, .025, .7, .95);
+}
+
+.social-media a:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+@keyframes BackgroundAnimation {
+  0% {
+    background-position: 0% 75%;
+  }
+  50% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 0% 75%;
+  }
+}
+
+/* About section */
+
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.about-container p {
+  text-align: justify;
+  letter-spacing: .2rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  width: 66%;
+}
+
+.about-container p a {
+  color: var(--primary-color);
+}
+
+/* Contact section */
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact h2 {
+  margin-top: 3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: auto;
+  margin: 3rem 0;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 90%;
+}
+
+.card {
+  height: 20rem;
+  width: 25rem;
+  margin-top: 3rem;
+  background-image: url("../img/linkedin.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: .3s;
+  filter: grayscale(0.5);
+}
+
+.card-text {
+  font-size: 1.2rem;
+  letter-spacing: .2rem;
+  text-align: justify;
+  margin-top: 1rem;
+  width: 40%;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: justify;
+}
+
+.card-wrapper::before { 
+  content: "";
+  position: absolute;
+  height: 6rem;
+  width: 6rem;
+  display: block;
+  border: 1px solid var(--primary-color);
+  transition: .3s;
+  opacity: 0;
+}
+
+.card-wrapper h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: .25rem;
+  margin: 0;
+  transition: .3s;
+}
+
+.card-wrapper p {
+  font-size: 0;
+  opacity: 0;
+  visibility: hidden;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  transition: .3s;
+}
+
+.card:hover {
+  filter: unset;
+}
+
+.card:hover > .card-wrapper::before {
+  height: 17.5rem;
+  width: 20rem;
+  opacity: 1;
+}
+
+.card:hover > .card-wrapper p {
+  opacity: 1;
+  visibility: visible;
+  font-size: 1rem;
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 6rem;
+  margin-top: 3rem;
+  background-color: rgb(35, 35, 35);
+}
+
+footer p, footer a {
+  font-size: 1.5rem;
+  letter-spacing: .2rem;
+  color: var(--primary-color);
+}
