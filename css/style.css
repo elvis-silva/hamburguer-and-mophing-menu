@@ -415,6 +415,10 @@ footer p, footer a {
     width: 190px;
   }
 
+  footer p, footer a {
+    font-size: .8rem;
+  }
+
 }
 
 @media (max-width: 1200px) {
